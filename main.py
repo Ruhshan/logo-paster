@@ -10,7 +10,7 @@ import os
 refPt = []
 cropping = False
 
-scale=8
+scale=2
 image = []
 path = ""
 def transparentOverlay(src , overlay , pos=(0,0),scale = 1):
@@ -60,6 +60,7 @@ def load_and_paste(fname):
 	global image, refPt, cropping, path
 	image = cv2.imread(fname)
 	full_image = image.copy()
+	full_image = cv2.resize(full_image, (750*scale, 500*scale))
 	clone = image.copy()
 	clone = cv2.resize(clone,(750,500))
 	image = cv2.resize(image,(750,500))
